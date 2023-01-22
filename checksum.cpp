@@ -1,9 +1,11 @@
+// Andrew Stekar
+// October 7, 2022
+
 #include <iostream>
 #include <climits>
 
 // function declarations
 int main();
-
 unsigned int add_checksum( unsigned int n );
 void add_checksum( unsigned int array[], std::size_t capacity );
 bool verify_checksum( unsigned int n );
@@ -12,7 +14,6 @@ void remove_checksum( unsigned int array[], std::size_t capacity );
 
 // function definitions
 int main() {
-
     unsigned int value_to_protect{21352411};
     unsigned int protected_value = add_checksum(value_to_protect);
     std::cout << "The value " << value_to_protect
@@ -38,6 +39,7 @@ int main() {
     return 0;
 }
 
+// adds checksum digit to a 8-digit number
 unsigned int add_checksum( unsigned int n ) {
     if (n > 99999999) {
         return UINT_MAX;
@@ -79,7 +81,6 @@ void add_checksum( unsigned int array[], std::size_t capacity ) {
 // checks if the checksum is valid
 bool verify_checksum( unsigned int n ) {
     if (n <= 999999999) {
-        // this variable stores the int without the checksum on it
         unsigned int num_to_check{(n - (n%10))/10};
         if (add_checksum(num_to_check) == n) {
             return true;
@@ -90,8 +91,6 @@ bool verify_checksum( unsigned int n ) {
 
 // returns the original 8-digit number if valid
 unsigned int remove_checksum( unsigned int n ) {
-    // this condition does not need to be equated because the
-    // verify_checksum is already a boolean return type.
     if (verify_checksum(n)) {
         return ((n - (n%10))/10);
     } else {
@@ -99,8 +98,9 @@ unsigned int remove_checksum( unsigned int n ) {
     }
 }
 
+// removes the checksum digit from the number
 void remove_checksum( unsigned int array[], std::size_t capacity ) {
-// looping through the array to modify its elements
+    // looping through the array to modify its elements
     for (std::size_t i{0}; i < capacity; ++i) {
         array[i] = remove_checksum(array[i]);
     }
