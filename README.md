@@ -1,0 +1,1 @@
+This CheckSum class contains functions that can add, remove, and verify CheckSum dgits on 8-digit numbers based on specific criteria. CheckSum is used to verrify information for accuracy durring transmission.
