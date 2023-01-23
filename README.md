@@ -1,1 +1,1 @@
-This CheckSum class contains functions that can add, remove, and verify CheckSum digits on 8-digit numbers based on specific criteria. CheckSum is used to verrify information for accuracy durring transmission.
+This CheckSum class contains functions that can add, remove, and verify CheckSum digits on 8-digit numbers based on specific criteria. CheckSum is used to verify information for accuracy durring transmission.
